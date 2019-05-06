@@ -18,11 +18,18 @@ def main(event, context):
     new_body = parse_qs(event['body'])
     calling_number = new_body['From'][0]
     
+    print("This number is calling: " + calling_number)
     if calling_number == os.environ['GATE_PHONE_NUMBER']:
-        print("This number is calling: " + calling_number)
         resp.play('', digits='w99')
         message = client.messages.create(
-            body="Alert! Apartment gates were opened",
+            body="Alert! South gates were opened",
+            from_=os.environ['TWILIO_NUMBER'],
+            to=os.environ['USER_FWD_NUMBER']
+        )
+    elif calling_number == os.environ['ALT_GATE_NUMBER']:
+        resp.play('', digits='w99')
+        message = client.messages.create(
+            body="Alert! North gates were opened",
             from_=os.environ['TWILIO_NUMBER'],
             to=os.environ['USER_FWD_NUMBER']
         )
