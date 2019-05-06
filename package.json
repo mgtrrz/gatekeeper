@@ -1,0 +1,14 @@
+{
+  "name": "gatekeeper",
+  "version": "0.2.2",
+  "description": "Sends a dial tone to open the gate",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "serverless-python-requirements": "^4.2.5"
+  }
+}
