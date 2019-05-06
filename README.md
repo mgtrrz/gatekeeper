@@ -10,6 +10,8 @@ I don't always have my cell phone around with me to answer it if I have a guests
 
 I registered a number with Twilio that I then gave to the apartment community. When the tele-entry boxes calls the Twilio number, it makes an API request to the Lambda script which then decides what to do with the request. If we recognize the number that's calling as being from the tele-entry box, we just send the 9 dial tone command so the gates open up automatically. It also sends me a text that the apartment gates were opened. If we receive a call from any other number, it forwards to my phone.
 
+In the event that the script fails, or there's an issue with the lambda function, Twilio is set up to forward the call to my personal phone number, and it also sends me an email to let me know the HTTP call failed.
+
 ## Requirements
 
 Uses https://serverless.com/blog/serverless-python-packaging/ for local development. 
